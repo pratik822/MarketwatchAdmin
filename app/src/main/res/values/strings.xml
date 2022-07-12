@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MarketwatchAdmin</string>
+    <string name="action_settings">Settings</string>
+    <string name="dash">-</string>
+    <string name="action_archive">Archive</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="post">Post</string>
+    <string name="buy_price">Buy Price</string>
+    <string name="target1">Target1</string>
+    <string name="target2">Target2</string>
+    <string name="target3">Target3</string>
+    <string name="stock_name">Stock Name</string>
+
+    <!-- Strings used for fragments for navigation -->
+
+</resources>
