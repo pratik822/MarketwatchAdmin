@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GlobalUpdate">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/t1"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Good Morning Have a nice trading day!"
+                android:textColor="@color/black"></TextView>
+
+
+            <TextView
+                android:id="@+id/t2"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/teal_200"
+                android:text="SGX Nifty indicates a flat opening for domestic markets">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/t3"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:paddingRight="5dp"
+                android:textColor="@android:color/holo_red_dark"
+                android:text="SGX Nifty indicates a negative opening for domestic markets">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/t4"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/holo_green_dark"
+                android:text="SGX Nifty indicates a positive opening for domestic markets ">
+
+            </TextView>
+            <TextView
+                android:id="@+id/t5"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/primary_text_light_nodisable"
+                android:text="Share market will be close today!">
+            </TextView>
+
+            <TextView
+                android:id="@+id/t6"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@android:color/holo_orange_dark"
+                android:text="Closing Bell: Nifty points,and bankNifty  ">
+            </TextView>
+
+            <TextView
+                android:id="@+id/t7"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@android:color/holo_orange_dark"
+                android:text="Closing Bell: Nifty close at 1, 1 point up and bankNifty close at 1,1">
+            </TextView>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <EditText
+        android:id="@+id/edt_notification"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="6"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:hint="Global Notification"
+        android:inputType="textMultiLine"
+        android:maxLines="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll" />
+
+    <Button
+        android:id="@+id/btn_notify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Notify"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_notification" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toEndOf="@+id/btn_notify"
+        app:layout_constraintTop_toBottomOf="@+id/edt_notification"
+        app:layout_constraintVertical_bias="0.13999999"
+        app:srcCompat="@drawable/share" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

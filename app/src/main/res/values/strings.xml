@@ -11,6 +11,7 @@
     <string name="target2">Target2</string>
     <string name="target3">Target3</string>
     <string name="stock_name">Stock Name</string>
+    <string name="stoploss">Stoploss</string>
 
     <!-- Strings used for fragments for navigation -->
 

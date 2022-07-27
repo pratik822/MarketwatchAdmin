@@ -1,7 +1,7 @@
 package com.pratik.marketwatchadmin.data
 
-data class dataReq(
+data class dataReqnew(
     val to: String,
-    val `notification`: Data,
+    val `data`: Data,
 
     )

@@ -1,10 +1,10 @@
 package com.pratik.marketwatchadmin.network
 
-import com.pratik.marketwatchadmin.data.*
-import okhttp3.ResponseBody
-import org.json.JSONObject
+import com.pratik.marketwatchadmin.data.AddPostData
+import com.pratik.marketwatchadmin.data.AddPostNotification
+import com.pratik.marketwatchadmin.data.Req
+import com.pratik.marketwatchadmin.data.ResponseData
 import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -23,7 +23,12 @@ interface RetrofitService {
 
     @FormUrlEncoded
     @POST("deletecreateData.php")
-    fun deleteCreatePost(@Field("id")id:String): Call<Req>
+    fun deleteCreatePost(@Field("id") id: String): Call<Req>
+
+
+    @Headers("Accept: application/json")
+    @POST("createDataNotification.php")
+    fun createPostNotification(@Body addPostNotification: AddPostNotification):Call<Req>
 }
 
 

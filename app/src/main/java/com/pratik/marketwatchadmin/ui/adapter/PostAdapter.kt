@@ -1,30 +1,29 @@
 package com.pratik.marketwatchadmin.ui.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.pratik.marketwatchadmin.R
 import com.pratik.marketwatchadmin.data.ResponseDataItem
 import com.pratik.marketwatchadmin.databinding.ItemListsBinding
-import android.os.Bundle
-
-import android.util.Log
-
-import android.view.View
-import android.content.Intent
-import com.pratik.marketwatchadmin.R
+import com.pratik.marketwatchadmin.ui.MainActivity
 
 
-class PostAdapter(var context: Context, var list: ArrayList<ResponseDataItem>):RecyclerView.Adapter<PostAdapter.ViewHolder>() {
-    var ResponseDataItem=1;
-    class ViewHolder( var binding:ItemListsBinding) : RecyclerView.ViewHolder(binding.root) {
+class PostAdapter(var context: Context, var list: ArrayList<ResponseDataItem>) :
+    RecyclerView.Adapter<PostAdapter.ViewHolder>() {
+    class ViewHolder(var binding: ItemListsBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var binding=ItemListsBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        var binding = ItemListsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -57,14 +56,14 @@ class PostAdapter(var context: Context, var list: ArrayList<ResponseDataItem>):R
         }
 
 
-        if (list.get(position).type=="buy") {
+        if (list.get(position).type == "buy") {
             holder.binding.tvCall.setText("BUY CALL")
-        }else{
+        } else {
             holder.binding.tvCall.setText("SELL CALL")
         }
 
         holder.binding.tvPosteddate.setText(list.get(position).create_date)
-         holder.binding.tvStatus.setText(list[position].duration)
+        holder.binding.tvStatus.setText(list[position].duration)
         if (list.get(position).duration.contains("Hit")) {
             holder.binding.tvStatus.setBackgroundColor(
                 ContextCompat.getColor(
@@ -88,14 +87,20 @@ class PostAdapter(var context: Context, var list: ArrayList<ResponseDataItem>):R
             )
         }
 
-       holder.binding.ivShare.setOnClickListener(object : View.OnClickListener {
+        holder.binding.btnEdit.setOnClickListener {
+            (context as MainActivity).onClickEventEdit(position)
+        }
+        holder.binding.btnRemove.setOnClickListener {
+            (context as MainActivity).onClickEventRemove(position)
+        }
+        holder.binding.ivShare.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
                 var msg: String = list.get(position).storename
                 if (!list.get(position).buyprice.isEmpty()) {
                     msg += " Buy@" + list.get(position).buyprice.toString() + ""
                 }
                 if (!list.get(position).stoploss.isEmpty() || list.get(
-                       position
+                        position
                     ).stoploss.isEmpty()
                 ) {
                     msg += " stoploss@" + list.get(position).stoploss
@@ -109,7 +114,7 @@ class PostAdapter(var context: Context, var list: ArrayList<ResponseDataItem>):R
                         .toString() + " "
                 }
                 if (!list.get(position).target2.isEmpty() || !list.get(
-                       position
+                        position
                     ).target2.contains("-")
                 ) {
                     msg += " target2@" + list.get(position).target2
@@ -133,6 +138,7 @@ class PostAdapter(var context: Context, var list: ArrayList<ResponseDataItem>):R
 
 
     }
+
     fun getBitmapFromView(txt: String?) {
         val sendIntent = Intent()
         sendIntent.action = Intent.ACTION_SEND
@@ -140,7 +146,8 @@ class PostAdapter(var context: Context, var list: ArrayList<ResponseDataItem>):R
         sendIntent.type = "text/plain"
         context.startActivity(sendIntent)
     }
+
     override fun getItemCount(): Int {
-       return list.size;
+        return list.size;
     }
 }
